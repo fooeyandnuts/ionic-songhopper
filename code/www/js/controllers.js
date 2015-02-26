@@ -58,7 +58,7 @@ Controller for the discover page
 /*
 Controller for the favorites page
 */
-.controller('FavoritesCtrl', function($scope, $window, User) {
+.controller('FavoritesCtrl', function($scope, $window, $ionicActionSheet, $timeout, User) {
   $scope.favorites = User.favorites;
   $scope.username = User.username;
   $scope.removeSong = function(song, index) {
@@ -66,6 +66,25 @@ Controller for the favorites page
   }
   $scope.openSong = function(song) {
     $window.open(song.open_url, "_system");
+  }
+  $scope.shareSong = function(song) {
+    var hideSheet = $ionicActionSheet.show({
+      buttons: [
+        { text: 'Share on <i class="icon ion-social-twitter">'},
+        { text: 'Share on <i class="icon ion-social-facebook">'}
+      ],
+      cancelText: 'Cancel',
+      cancel: function() {
+
+      },
+      buttonClicked: function(index) {
+        return true;
+      }
+    });
+
+    $timeout(function() {
+      hideSheet();
+    }, 2000);
   }
 })
 
