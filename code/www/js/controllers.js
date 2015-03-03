@@ -75,7 +75,6 @@ Controller for the favorites page
       ],
       cancelText: 'Cancel',
       cancel: function() {
-
       },
       buttonClicked: function(index) {
         return true;
@@ -84,7 +83,15 @@ Controller for the favorites page
 
     $timeout(function() {
       hideSheet();
-    }, 2000);
+    }, 4000);
+  }
+
+  $scope.shareViaTwitter = function(message, image, link) {
+    $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+        $cordovaSocialSharing.shareViaTwitter(message, image, link);
+    }, function(error) {
+        alert("Cannot share on Twitter");
+    });
   }
 })
 
