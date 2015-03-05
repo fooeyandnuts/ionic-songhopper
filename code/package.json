@@ -16,6 +16,8 @@
   },
   "cordovaPlugins": [
     "com.ionic.keyboard",
-    "org.apache.cordova.inappbrowser"
+    "org.apache.cordova.inappbrowser",
+    "org.apache.cordova.media",
+    "org.apache.cordova.file"
   ]
 }

@@ -137,6 +137,14 @@ angular.module('songhop.services', ['ionic.utils'])
     o.playCurrentSong = function() {
       var defer = $q.defer();
 
+      // media = new Media(o.queue[0].preview_url);
+      // media.addEventListener("loadeddata", function() {
+      //   defer.resolve();
+      // });
+      // media.play();
+
+      // return defer.promise;
+      
       media = new Audio(o.queue[0].preview_url);
       media.addEventListener("loadeddata", function() {
         defer.resolve();
